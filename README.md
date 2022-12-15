@@ -9,7 +9,7 @@ not modified to the 0.8 version of Solidity._
 
 ## File locations
 
-- individual Llvels can be found in their respective folder located under `src/levels/XX-LevelName`
+- individual levels can be found in their respective folder located under `src/levels/XX-LevelName`
 - tests for each level can be found in the `test` directory under the same name convention as the folders above `XX-LevelName.t.sol`
 - each writeup is located in the appropriate level folder
 
