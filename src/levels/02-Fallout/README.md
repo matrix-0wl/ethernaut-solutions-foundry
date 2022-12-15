@@ -62,12 +62,12 @@ In other words the contract does not use the `constructor()` function, but inste
 
 ## Potential attack scenario (hypothesis)
 
-Attacker can call the faulty constructor and claim ownership of the contract. He can then withdraw all the allocations. This way he will drain the contract balance.
+Attacker can call the faulty constructor and claim ownership of the contract. He can then withdraw all the funds.
 
 ## Plan of the attack
 
 1. Attacker can call the `Fal1out()` function which will set him as the owner of the `Fallout` contract.
-2. Attacker as owner can withdraw all the funds.
+2. Attacker as the owner can withdraw all the funds.
 
 ## Proof of Concept
 
@@ -127,8 +127,6 @@ constructor () public payable {
    `collectAllocations()` function to provide a better user experience and
    increase safety.
 
-```
-
 ## Additional information
 
 You can also read my two other solutions (using console and Remix) on my blog: https://matrix-0wl.gitbook.io/ethernaut/1.-fallback-fallback-function
@@ -143,4 +141,7 @@ The structure of my reports is based on the insights provided by:
 The recommendations section is based on the insights provided by:
 
 - [ChmielewskiKamil](https://github.com/ChmielewskiKamil/ethernaut-foundry)
+
+```
+
 ```
