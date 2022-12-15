@@ -62,13 +62,13 @@ The fallback contract contains a `receive()` function that at first glance conta
 
 > The receive function is executed on a call to the contract with empty calldata. This is the function that is executed on plain Ether transfers (e.g. via .send() or .transfer()). If no such function exists, but a payable fallback function exists, the fallback function will be called on a plain Ether transfer. If neither a receive Ether nor a payable fallback function is present, the contract cannot receive Ether through regular transactions and throws an exception.
 >
-> \_Reference: https://docs.soliditylang.org/en/v0.8.12/contracts.html#receive-ether-function*
+> _Reference: https://docs.soliditylang.org/en/v0.8.12/contracts.html#receive-ether-function_
 
 We can send Ether to other contracts by:
 
-- transfer (2300 gas, throws error)
-- send (2300 gas, returns bool)
-- call (forward all gas or set gas, returns bool)
+- transfer
+- send
+- call
 
   | Function   | Amount of Gas Forwarded        | Exception Propagation              |
   | :--------- | :----------------------------- | :--------------------------------- |
@@ -76,11 +76,11 @@ We can send Ether to other contracts by:
   | `transfer` | 2300 (not adjustable)          | `throws` on failure (throws error) |
   | `call`     | all remaining gas (adjustable) | `false` on failure (returns bool)  |
 
-  \_Reference: https://solidity-by-example.org/sending-ether/*
+  _Reference: https://solidity-by-example.org/sending-ether/_
 
 We will need to use the `call` method so that the contract has enough gas left to change the `owner` state after performing the transfer. Both `send` and `transfer` have a fixed gas stipend which would be insufficient for this purpose.
 
-## Potential attack scenario - hypothesis
+## Potential attack scenario (hypothesis)
 
 If attacker sends ether directly to the contract via external call, he can become the owner of the contract without the need to contribute more than the owner.
 
@@ -96,7 +96,7 @@ If attacker sends ether directly to the contract via external call, he can becom
 Here is a simplified version of the unit test exploiting the vulnerability ([complete version here](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/test/01-Fallback.t.sol))
 
 ```solidity
-  //Triggering contribute function with value greater than 0
+  		//Triggering contribute function with value greater than 0
         fallbackContract.contribute{value: 1}();
         emit log_named_uint(
             "Attackers's contribution: ",
@@ -155,7 +155,7 @@ You can also read my two other solutions (using console and Remix) on my blog: h
 The structure of my reports is based on the insights provided by:
 
 - [ChmielewskiKamil](https://github.com/ChmielewskiKamil/ethernaut-foundry)
-- [Joran Honig Twitter thread](https://twitter.com/joranhonig/status/1539578735631949825?s=20&t=Kp6iDNXfRKQUBbsb_Yj5SQ).
+- [Joran Honig Twitter thread](https://twitter.com/joranhonig/status/1539578735631949825?s=20&t=Kp6iDNXfRKQUBbsb_Yj5SQ)
 
 The recommendations section is based on the insights provided by:
 
