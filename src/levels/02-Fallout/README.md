@@ -129,7 +129,7 @@ constructor () public payable {
 
 ## Additional information
 
-You can also read my two other solutions (using console and Remix) on my blog: https://matrix-0wl.gitbook.io/ethernaut/1.-fallback-fallback-function
+You can also read my two other solutions (using console and Remix) on my blog: https://matrix-0wl.gitbook.io/ethernaut/2.-fallout-typo-in-constructor
 
 ## Acknowledgements
 
