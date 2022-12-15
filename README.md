@@ -1,16 +1,17 @@
 # Ethernaut solutions and write-ups in Foundry 🔨
 
-Writeups available at: https://matrix-0wl.gitbook.io/ethernaut/
+Each writeup is located in the appropriate level folder.
+
+You can also read my other solutions (using console and/or Remix) on my blog: https://matrix-0wl.gitbook.io/ethernaut/.
 
 _This repository uses the original version of the Ethernaut challenges. It is
 not modified to the 0.8 version of Solidity._
 
-## Info
+## File locations
 
-You will find each writeup in the distinct folder located under
-`src/levels/XX-LevelName`. Each solution is located in the appropriate folder in
-the `test` directory under the same name convention as the folders above
-`XX-LevelName.t.sol`.
+- individual Llvels can be found in their respective folder located under `src/levels/XX-LevelName`
+- tests for each level can be found in the `test` directory under the same name convention as the folders above `XX-LevelName.t.sol`
+- each writeup is located in the appropriate level folder
 
 ## Acknowledgements
 
