@@ -135,6 +135,7 @@ You can also read my other solution (using console) on my blog: https://matrix-0
 - [Blog Aditya Dixit](https://blog.dixitaditya.com/series/ethernaut)
 - [D-Squared YT - Ethernaut CTF Series](https://www.youtube.com/watch?v=_ylKN2R_o-Y&list=PLiAoBT74VLnmRIPZGg4F36fH3BjQ5fLnz)
 - [Mastering Ethereum book](https://github.com/ethereumbook/ethereumbook)
+- [ChmielewskiKamil](https://github.com/ChmielewskiKamil/ethernaut-foundry)
 - https://ethereum.org/en/developers/docs/standards/tokens/erc-20/
 - https://eips.ethereum.org/EIPS/eip-20_
 - https://solidity-by-example.org/hacks/overflow/
