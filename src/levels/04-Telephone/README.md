@@ -145,6 +145,12 @@ Here are the logs from the exploit contract:
 
 You can also read my other solution (using Remix) on my blog: https://matrix-0wl.gitbook.io/ethernaut/4.-telephone-phising-with-tx.origin-used-instead-of-msg.sender
 
+## References
+
+- [Blog Aditya Dixit](https://blog.dixitaditya.com/series/ethernaut)
+- [D-Squared YT - Ethernaut CTF Series](https://www.youtube.com/watch?v=_ylKN2R_o-Y&list=PLiAoBT74VLnmRIPZGg4F36fH3BjQ5fLnz)
+- [Mastering Ethereum book](https://github.com/ethereumbook/ethereumbook)
+
 ## Acknowledgements
 
 The structure of my reports is based on the insights provided by:

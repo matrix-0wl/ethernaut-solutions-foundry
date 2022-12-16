@@ -59,7 +59,6 @@ To exploit `Token` contract we have to underflow the token balance. The vulnerab
 ```
 
 In older versions of Solidity, there was no validation for overflows and underflows therefore developers had to implement their own checks. A SafeMath library was also introduced for this purpose. But since Solidity 0.8.0+, there's no need to use the SafeMath since it natively checks the variables for overflows and underflows and reverts if detected.
-_Reference: https://blog.dixitaditya.com/ethernaut-level-05-token_
 
 Since the objective of the level is for us to acquire some tokens, we'll have to exploit the following statements
 
@@ -131,6 +130,15 @@ Here are the logs from the exploit contract:
 
 You can also read my other solution (using console) on my blog: https://matrix-0wl.gitbook.io/ethernaut/5.-token-uint-prone-to-under-overflow-in-solidity-less-than-0.8
 
+## References
+
+- [Blog Aditya Dixit](https://blog.dixitaditya.com/series/ethernaut)
+- [D-Squared YT - Ethernaut CTF Series](https://www.youtube.com/watch?v=_ylKN2R_o-Y&list=PLiAoBT74VLnmRIPZGg4F36fH3BjQ5fLnz)
+- [Mastering Ethereum book](https://github.com/ethereumbook/ethereumbook)
+- https://ethereum.org/en/developers/docs/standards/tokens/erc-20/
+- https://eips.ethereum.org/EIPS/eip-20_
+- https://solidity-by-example.org/hacks/overflow/
+
 ## Acknowledgements
 
 The structure of my reports is based on the insights provided by:
@@ -141,7 +149,3 @@ The structure of my reports is based on the insights provided by:
 The recommendations section is based on the insights provided by:
 
 - [ChmielewskiKamil](https://github.com/ChmielewskiKamil/ethernaut-foundry)
-
-```
-
-```
