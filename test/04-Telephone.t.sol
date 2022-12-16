@@ -70,7 +70,7 @@ contract TelephoneTest is Test {
         );
 
         // `attack()` function invokes the `changeOwner()` function with attacker's address as an argument
-        emit log_string("Eve calls the attack function...");
+        emit log_string("Attacker calls the attack function...");
         telephoneAttack.attack();
 
         // The ownership is claimed by attacker
