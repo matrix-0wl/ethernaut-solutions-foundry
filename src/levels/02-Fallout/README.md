@@ -147,7 +147,3 @@ The structure of my reports is based on the insights provided by:
 The recommendations section is based on the insights provided by:
 
 - [ChmielewskiKamil](https://github.com/ChmielewskiKamil/ethernaut-foundry)
-
-```
-
-```

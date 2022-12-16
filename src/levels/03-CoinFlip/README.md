@@ -186,8 +186,6 @@ function flip(bool _guess) public returns (bool) {
   calculate the outcome of the game externally and call the `flip()` function
   manually or automate the whole process via a `bash` script.
 
-```
-
 ## Additional information
 
 You can also read my other solution (using Remix) on my blog: https://matrix-0wl.gitbook.io/ethernaut/3.-coin-flip-problem-of-randomness
@@ -202,4 +200,3 @@ The structure of my reports is based on the insights provided by:
 The recommendations section is based on the insights provided by:
 
 - [ChmielewskiKamil](https://github.com/ChmielewskiKamil/ethernaut-foundry)
-```
