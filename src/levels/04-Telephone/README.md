@@ -59,6 +59,12 @@ So to exploit this we just need to make sure that our `tx.origin` and `msg.sende
 
 To bypass this validation we can make use of a malicious intermediary contract (e.g: phishing attack) to call `changeOwner()` and pass the function checks.
 
+## Static analysis (slither)
+
+Here are the logs from the slither:
+
+![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/Telephone_slither.png)
+
 ## Potential attack scenario (hypothesis)
 
 Attacker can create a malicious intermediary contract that makes a call to the `Telephone` contract. This call invokes the `changeOwner()` function with attacker's address as an argument and changes the owner to attacker.

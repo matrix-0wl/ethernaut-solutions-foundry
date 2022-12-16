@@ -47,6 +47,12 @@ In other words the contract is supposed to work as follows:
 
 - The goal of the game is to get the most consecutive wins
 
+## Static analysis (slither)
+
+Here are the logs from the slither:
+
+![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/CoinFlip_slither.png)
+
 ## Finding the weak spots
 
 In this contract the weak spot is problem with randomness. Ethereum is a deterministic Turing machine, with no inherent randomness involved. To generate randomness in Ethereum developers often make use of data related to the blocks, i.e., block number, hash, etc. These variables may look random but are actually deterministic and can be exploited if the inputs are known. We have such problem in `CoinFlip` contract.

@@ -49,6 +49,12 @@ The fallback contract allows users to contribute ether to the contract. The cont
   }
 ```
 
+## Static analysis (slither)
+
+Here are the logs from the slither:
+
+![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/Fallback_slither.png)
+
 ## Finding the weak spots
 
 The fallback contract contains a `receive()` function that at first glance contains flawed logic. That is why if we want to claim ownership of the contract we have to trigger `receive()` function. In order to do this we have to fullfill `require` condition.

@@ -44,6 +44,12 @@ allocate ether into their separate balances.
   }
   ```
 
+## Static analysis (slither)
+
+Here are the logs from the slither:
+
+![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/Fallout_slither.png)
+
 ## Finding the weak spots
 
 The method has a comment that mentions that it's the contructor. Constructor methods run only right after the contract is deployed and they're commonly used to initialize the contract's state, like assigning an owner in this case. Constructors are declared using the constructor keyword or a function with the same name as the contract, in this case `Fallout`.
