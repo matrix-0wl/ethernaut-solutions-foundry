@@ -51,7 +51,7 @@ Therefore, to finish this level, we just need to deploy a malicious contract, th
 
 ## Potential attack scenario (hypothesis)
 
-Attacker can create a malicious contract that will contain an `attack` function that trigger `selfdestruct` and specify the address of the `Force` contract as the target. Funds it with some Ether, calls the `attack` function and this way he will increase the balance of the `Force` contract.
+Attacker can create a malicious contract that will send Ether (current prize) to the victim contract to become the new king. Victim contract will try to reclaim the kingship by sending an equivalent amount of prize money to the attacker contract via `transfer` function but it won't be possible because attacker contract won't implement any method `fallback()` or `receive()` to handle Ether transfer. In result the transfer call from victim contract will simply revert, reverting the whole transaction and the level won't be able to become the new king.
 
 ## Plan of the attack
 
