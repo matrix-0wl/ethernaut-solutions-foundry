@@ -98,7 +98,7 @@ Here is a simplified version of the unit test exploiting the vulnerability ([com
 
 Here are the logs from the exploit contract:
 
-![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/Force.png)
+![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/King.png)
 
 ## Recommendations
 
