@@ -2,11 +2,11 @@
 
 ## Objectives
 
-- Make it past the gatekeeper and register as an entrant to pass this level.
+- Make it pass the gatekeeper and register as an entrant to pass this level.
 
 ## Contract Overview
 
-To reach the objective and enter the `GatekeeperOne` contract it is necessary to get past the three gates.
+To reach the objective and enter the `GatekeeperOne` contract it is necessary to get pass the three gates.
 
 ## Static analysis (slither)
 
@@ -32,7 +32,7 @@ To satisfy the `msg.sender =! tx.origin` check we need to call the
 [Telephone - level 4](https://github.com/matrix-0wl/ethernaut-solutions-foundry/tree/master/src/levels/04-Telephone)
 challenge.
 
-In other words to ensure that msg.sender and tx.origin are different, an intermediary contract can be created to make function calls to the GatekeeperOne contract. By doing so, the caller's address will become the tx.origin, and the deployed contract's address will be the msg.sender received by the GatekeeperOne contract.
+In other words to ensure that `msg.sender` and `tx.origin` are different, an intermediary contract can be created to make function calls to the `GatekeeperOne` contract. By doing so, the caller's address will become the `tx.origin`, and the deployed contract's address will be the `msg.sender` received by the `GatekeeperOne` contract.
 
 ### The second gate
 
