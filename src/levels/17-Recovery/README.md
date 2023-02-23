@@ -63,7 +63,7 @@ According to [ethereum.stackexchange.com](https://ethereum.stackexchange.com/que
 
 ## Proof of Concept
 
-Here is a simplified version of the unit test exploiting the vulnerability ([complete version here](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/test/17-Recoverya.t.sol))
+Here is a simplified version of the unit test exploiting the vulnerability ([complete version here](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/test/17-Recovery.t.sol))
 
 ```solidity
         // 1. Attacker creates the `PreservationAttack` contract.
@@ -100,7 +100,7 @@ Here is a simplified version of the unit test exploiting the vulnerability ([com
 
 Here are the logs from the exploit contract:
 
-![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/Preservation.png)
+![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/Recovery.png)
 
 ## Recommendations
 
