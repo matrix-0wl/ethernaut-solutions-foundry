@@ -85,6 +85,8 @@ contract NaughtCoinTest is Test {
         emit log_string(
             "--------------------------------------------------------------------------"
         );
+
+        // Test assertion
         // Assert that the attacker has no more tokens
         assertEq(naughtCoinContract.balanceOf(attacker), 0);
 

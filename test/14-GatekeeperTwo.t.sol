@@ -85,6 +85,7 @@ contract GatekeeperTwoTest is Test {
             gatekeeperTwoContract.entrant()
         );
 
+        // Test assertion
         assertEq(gatekeeperTwoContract.entrant(), tx.origin);
 
         /*//////////////////////////////////////////////////////////////

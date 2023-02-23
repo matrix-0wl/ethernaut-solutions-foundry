@@ -119,6 +119,18 @@ Here are the logs from the exploit contract:
 
 ![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/NaughtCoin.png)
 
+## Recommendations
+
+Instead of overriding the transfer function, we could have implemented a hook that the EIP-20 define, called `_beforeTokenTransfer`.
+
+This hook is called when any kind of token transfer happen:
+
+- `mint` (transfer from 0x address to the user)
+- `burn` (transfer from the user to 0x address)
+- `transfer`
+- `transferFrom`
+  By doing so, they would have prevented this exploit.
+
 ## References
 
 - [Blog Aditya Dixit](https://blog.dixitaditya.com/series/ethernaut)

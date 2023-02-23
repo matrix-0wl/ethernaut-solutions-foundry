@@ -35,13 +35,15 @@ contract PreservationTest is
                             LEVEL INSTANCE SETUP
         //////////////////////////////////////////////////////////////*/
 
-        FallbackFactory fallbackFactory = new FallbackFactory(); //change this @todo
+        PreservationFactory preservationFactory = new PreservationFactory(); //change this @todo
 
-        ethernaut.registerLevel(fallbackFactory); //change this @todo
+        ethernaut.registerLevel(preservationFactory); //change this @todo
         vm.startPrank(attacker);
 
-        address levelAddress = ethernaut.createLevelInstance(fallbackFactory); //change this @todo
-        Fallback fallbackContract = Fallback(payable(levelAddress)); //change this @todo
+        address levelAddress = ethernaut.createLevelInstance(
+            preservationFactory
+        ); //change this @todo
+        Preservation preservationContract = Preservation(payable(levelAddress)); //change this @todo
 
         emit log_string("Starting the exploit...");
         emit log_named_address("Attacker's address", attacker);
@@ -51,6 +53,8 @@ contract PreservationTest is
         //////////////////////////////////////////////////////////////*/
 
         // @todo
+
+        // Test assertion
 
         /*//////////////////////////////////////////////////////////////
                                 LEVEL SUBMISSION

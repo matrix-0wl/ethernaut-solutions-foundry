@@ -115,6 +115,7 @@ contract GatekeeperOneTest is Test {
             gatekeeperOneContract.entrant()
         );
 
+        // Test assertion
         assertEq(gatekeeperOneContract.entrant(), tx.origin);
 
         /*//////////////////////////////////////////////////////////////
