@@ -43,15 +43,16 @@ Attacker has to swap all token1 for token2. Then swap all token2 for token1. And
 4. On each token swap, we are left with more tokens than held previously.
 5. Once reached a value of 65 tokens for either token1 or token2, attacker can do another swap to drain the balance of one of the tokens from Dex. `((65\*110)/45 = 158)`
 
-| Dex | User
-|token1 | token2 | token1 | token2
-|100 | 100 | 10 | 10
-|110 | 90 | 0 | 20
-|86 | 110 | 24 | 0
-|110 | 80 | 0 | 30
-|69 | 110 | 41 | 0
-|110 | 45 | 0 | 65
-|0 | 90 | 110 | 20
+| Dex | User | | |
+|token1 | token2 | token1 | token2 |
+|-------|---|---|---|
+|100 | 100 | 10 | 10|
+|110 | 90 | 0 | 20|
+|86 | 110 | 24 | 0|
+|110 | 80 | 0 | 30|
+|69 | 110 | 41 | 0|
+|110 | 45 | 0 | 65|
+|0 | 90 | 110 | 20|
 
 This means that in the final step if attacker needs to drain 110 token1, the amount of token2 to be swapped is `(65 * 110)/158 = 45`. This will bring the token1 balance of the Dex to 0.
 
