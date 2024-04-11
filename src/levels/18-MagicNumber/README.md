@@ -72,38 +72,6 @@ Here are the logs from the exploit contract:
 
 ![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/MagicNum.png)
 
-## Recommendations
-
-- `transfer` function is always resetting the `_to` balance
-  To fix this, the transfer function should subtract the transfer amount (\_amount) from the balance of the sender and add it to the balance of the receiver. The corrected transfer function would look like this:
-
-```solidity
-function transfer(address _to, uint _amount) public {
-    require(balances[msg.sender] >= _amount);
-    balances[msg.sender] -= _amount;
-    balances[_to] += _amount;
-}
-```
-
-- `destroy` function has no authentication requirements
-  One way to fix this would be to add an access control mechanism that restricts the calling of the destroy function to only the contract owner or an authorized admin. This can be achieved by adding a modifier that checks if the caller is the contract owner, and only allowing the destroy function to be executed if this condition is met.
-
-```solidity
-modifier onlyOwner() {
-    require(msg.sender == owner, "Only the contract owner can call this function.");
-    _;
-}
-
-function destroy(address payable _to) public onlyOwner {
-    selfdestruct(_to);
-}
-
-```
-
 ## References
 
-- [Blog Aditya Dixit](https://blog.dixitaditya.com/series/ethernaut)
-- [Blog Stermi](https://stermi.xyz/blog/ethernaut-challenge-17-solution-recovery)
-- [D-Squared YT - Ethernaut CTF Series](https://www.youtube.com/watch?v=_ylKN2R_o-Y&list=PLiAoBT74VLnmRIPZGg4F36fH3BjQ5fLnz)
-- [Smart Contract Programmer YT - Ethernaut](https://www.youtube.com/playlist?list=PLO5VPQH6OWdWh5ehvlkFX-H3gRObKvSL6)
-- [Mastering Ethereum book](https://github.com/ethereumbook/ethereumbook)
+- [Solidity by example](https://solidity-by-example.org/app/simple-bytecode-contract/)
