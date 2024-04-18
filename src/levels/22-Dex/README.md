@@ -114,11 +114,7 @@ When doing calculations related to any sensitive asset such as tokens, careful a
 ## References
 
 - [Blog Aditya Dixit](https://blog.dixitaditya.com/series/ethernaut)
-- [Blog Stermi](https://stermi.xyz/blog/ethernaut-challenge-20-solution-shop)
-- [Blog cmichel](https://cmichel.io/ethernaut-solutions/)
-- [D-Squared YT - Ethernaut CTF Series](https://www.youtube.com/watch?v=_ylKN2R_o-Y&list=PLiAoBT74VLnmRIPZGg4F36fH3BjQ5fLnz)
-- [Smart Contract Programmer YT - Ethernaut](https://www.youtube.com/playlist?list=PLO5VPQH6OWdWh5ehvlkFX-H3gRObKvSL6)
-- [Mastering Ethereum book](https://github.com/ethereumbook/ethereumbook)
+- [Blog Stermi](https://stermi.xyz/blog/ethernaut-challenge-21-solution-dex)
 
 ## Acknowledgements
 
