@@ -6,7 +6,7 @@
 
 ## Contract Overview
 
-Code consists of four contracts, `Motorbike` and `Engine`.
+Code consists of four contracts.
 
 The `Forta` contract serves as a decentralized detection and alert system within the dApp. Key features include:
 
@@ -120,7 +120,7 @@ Here is a simplified version of the unit test exploiting the vulnerability ([com
 
 Here are the logs from the exploit contract:
 
-![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/DoubleEntryPoint.png)
+![alt text](https://github.com/matrix-0wl/ethernaut-solutions-foundry/blob/master/img/DoublyEntryPoint.png)
 
 ## References
 
